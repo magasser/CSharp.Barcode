@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{48DFEEEC-5808-4698-8DB3-DAD89C1094DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{CBB24AE5-85F2-4D29-97A4-60C78FCA5206}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Barcode", "src\CSharp.Barcode\CSharp.Barcode.csproj", "{37FBA803-1D22-4A37-A466-B9DD1F7855DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37FBA803-1D22-4A37-A466-B9DD1F7855DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37FBA803-1D22-4A37-A466-B9DD1F7855DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37FBA803-1D22-4A37-A466-B9DD1F7855DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37FBA803-1D22-4A37-A466-B9DD1F7855DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{37FBA803-1D22-4A37-A466-B9DD1F7855DD} = {48DFEEEC-5808-4698-8DB3-DAD89C1094DB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {75496954-FAB6-493E-8A5C-023CEF7B4B2A}
+	EndGlobalSection
+EndGlobal
