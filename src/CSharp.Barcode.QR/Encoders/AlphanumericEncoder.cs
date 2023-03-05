@@ -86,7 +86,6 @@ namespace CSharp.Barcode.Encoders
             var modeIndicator = EncodingMode.GetModeIndicator(version)
                              ?? throw new EncodingException(
                                     $"Cannot encode payload with encoding mode '{EncodingMode}' in version '{version}'.");
-            ;
 
             var characterCountIndicator = EncoderHelper.ToBinary(
                 payload.Length.ToString(),

@@ -71,6 +71,16 @@ public class StringHelperTests
         Assert.Equivalent(expected, result);
     }
 
+    [Fact]
+    public void ToBinary_throws_if_null_bytes()
+    {
+        // Act
+        var act = () => EncoderHelper.ToBinary((byte[])null!);
+
+        // Assert
+        Assert.Throws<ArgumentNullException>(act);
+    }
+
     [Theory]
     [InlineData(null)]
     [InlineData("")]
@@ -87,12 +97,25 @@ public class StringHelperTests
     }
 
     [Theory]
+    [InlineData(new byte[] { 1, 1, 1 }, "000000010000000100000001")]
+    [InlineData(new byte[] { 255, 255, 255 }, "111111111111111111111111")]
+    [InlineData(new byte[] { 80, 77, 11 }, "010100000100110100001011")]
+    public void ToBinary_returns_binary_string_from_bytes(byte[] source, string expected)
+    {
+        // Act
+        var result = EncoderHelper.ToBinary(source);
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Theory]
     [InlineData("0", "00000000")]
     [InlineData("012", "00001100")]
     [InlineData("345", "0000000101011001")]
     [InlineData("67", "01000011")]
     [InlineData("8", "00001000")]
-    public void ToBinary_returns_binary_string(string source, string expected)
+    public void ToBinary_returns_binary_string_from_string(string source, string expected)
     {
         // Act
         var result = EncoderHelper.ToBinary(source);
@@ -107,7 +130,7 @@ public class StringHelperTests
     [InlineData("345", 5, "11001")]
     [InlineData("67", 2, "11")]
     [InlineData("8", 15, "000000000001000")]
-    public void ToBinary_returns_binary_string_of_given_length(string source, int length, string expected)
+    public void ToBinary_returns_binary_string_from_string_of_given_length(string source, int length, string expected)
     {
         // Act
         var result = EncoderHelper.ToBinary(source, length);

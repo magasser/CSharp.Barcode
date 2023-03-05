@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\CSharp.Barcode.QR\CSharp.Barcode.QR.csproj" />
+    <ProjectReference Include="..\..\src\CSharp.Barcode.QR\CSharp.Barcode.QR.csproj" />
   </ItemGroup>
 
 </Project>

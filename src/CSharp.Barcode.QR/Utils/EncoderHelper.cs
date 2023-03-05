@@ -69,6 +69,24 @@ namespace CSharp.Barcode.Utils
         }
 
         /// <summary>
+        ///     Converts the <paramref name="source" /> bytes into a binary string.
+        /// </summary>
+        /// <param name="source">The source bytes to convert.</param>
+        /// <returns>Returns the converted binary string.</returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static string ToBinary(byte[] source)
+        {
+            if (source is null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+
+            var builder = ToBinaryBuilder(source, reverse: false);
+
+            return builder.ToString();
+        }
+
+        /// <summary>
         ///     Converts the <paramref name="source" /> string into a binary string.
         /// </summary>
         /// <param name="source">The source string to convert.</param>
@@ -87,7 +105,7 @@ namespace CSharp.Barcode.Utils
         }
 
         /// <summary>
-        /// Converts the <paramref name="source" /> string into a binary string of given <paramref name="length"/>.
+        ///     Converts the <paramref name="source" /> string into a binary string of given <paramref name="length" />.
         /// </summary>
         /// <param name="source">The source string to convert.</param>
         /// <param name="length">The length of the resulting binary string</param>
@@ -119,11 +137,26 @@ namespace CSharp.Barcode.Utils
             var bytes = BigInteger.Parse(source)
                                   .ToByteArray();
 
-            var builder = new StringBuilder(capacity: bytes.Length * 8);
+            return ToBinaryBuilder(bytes, reverse: true);
+        }
 
-            for (var i = bytes.Length - 1; i >= 0; i--)
+        private static StringBuilder ToBinaryBuilder(byte[] source, bool reverse)
+        {
+            var builder = new StringBuilder(capacity: source.Length * 8);
+
+            if (reverse)
             {
-                builder.Append(Convert.ToString(bytes[i], toBase: 2).PadLeft(8, '0'));
+                for (var i = source.Length - 1; i >= 0; i--)
+                {
+                    builder.Append(Convert.ToString(source[i], toBase: 2).PadLeft(8, '0'));
+                }
+            }
+            else
+            {
+                for (var i = 0; i < source.Length; i++)
+                {
+                    builder.Append(Convert.ToString(source[i], toBase: 2).PadLeft(8, '0'));
+                }
             }
 
             return builder;
