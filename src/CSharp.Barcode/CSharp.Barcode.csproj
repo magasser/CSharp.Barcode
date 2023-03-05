@@ -3,8 +3,24 @@
 	<PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard2.1;net48;netcoreapp3.1;net5.0;net6.0;net7.0</TargetFrameworks>
 
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
+
     <Title>CSharp Barcode</Title>
     <Description>.NET library to create Barcodes</Description>
+
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+
+    <IsPackable>true</IsPackable>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageId>CSharp.Barcode</PackageId>
+
+    <AssebmlyName>CSharp.Barcode</AssebmlyName>
+    <RootNamespace>CSharp.Barcode</RootNamespace>
+
+    <Authors>Manuel Gasser</Authors>
   </PropertyGroup>
 
 </Project>

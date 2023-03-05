@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net48;netcoreapp3.1;net5.0;net6.0;net7.0</TargetFrameworks>
+
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
+
+    <Title>CSharp Barcode QR</Title>
+    <Description>.NET library to create QR Codes</Description>
+
+    <IsPackable>false</IsPackable>
+
+    <AssebmlyName>CSharp.Barcode.QR</AssebmlyName>
+    <RootNamespace>CSharp.Barcode</RootNamespace>
+
+    <Authors>Manuel Gasser</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="$(AssemblyName).Tests" />
+  </ItemGroup>
+
+</Project>
