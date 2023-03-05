@@ -40,17 +40,18 @@ namespace CSharp.Barcode.Encoders
                 payload.Length.ToString(),
                 length: version.NumericCharacterCountBits);
 
-            var chunks = EncoderHelper.ChunkMax(payload, chunkSize);
-
-            var binaryStrings = chunks.Select(
-                chunk =>
-                    chunk.Length switch
-                    {
-                        1 => EncoderHelper.ToBinary(chunk, length: 4),
-                        2 => EncoderHelper.ToBinary(chunk, length: 7),
-                        3 => EncoderHelper.ToBinary(chunk, length: 10),
-                        _ => throw new InvalidOperationException("The chunk size must be in range [1;3].")
-                    });
+            var binaryStrings =
+                EncoderHelper.ChunkMax(payload, chunkSize)
+                             .Select(
+                                 chunk =>
+                                     chunk.Length switch
+                                     {
+                                         1 => EncoderHelper.ToBinary(chunk, length: 4),
+                                         2 => EncoderHelper.ToBinary(chunk, length: 7),
+                                         3 => EncoderHelper.ToBinary(chunk, length: 10),
+                                         _ => throw new InvalidOperationException(
+                                                  "The chunk size must be in range [1;3].")
+                                     });
 
             var dataBinary = string.Join(separator: string.Empty, binaryStrings);
 
